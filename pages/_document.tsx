@@ -35,10 +35,8 @@ export default class MyDocument extends Document {
   }
   render() {
     return (
-      <>
+      <Html lang="en">
         <Head>
-          <title>HOME | Chris Herrera</title>
-          <link rel="shortcut icon" href="CH.png" />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link
@@ -50,7 +48,7 @@ export default class MyDocument extends Document {
           <Main />
           <NextScript />
         </body>
-      </>
+      </Html>
     );
   }
 }
