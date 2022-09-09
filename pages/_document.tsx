@@ -35,7 +35,7 @@ export default class MyDocument extends Document {
   }
   render() {
     return (
-      <Html lang="en">
+      <>
         <Head>
           <title>HOME | Chris Herrera</title>
           <link rel="shortcut icon" href="CH.png" />
@@ -50,7 +50,7 @@ export default class MyDocument extends Document {
           <Main />
           <NextScript />
         </body>
-      </Html>
+      </>
     );
   }
 }
