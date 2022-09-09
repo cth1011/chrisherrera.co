@@ -1,8 +1,8 @@
 import React from "react";
+import Head from "next/head";
 import Document, {
   DocumentContext,
   Html,
-  Head,
   Main,
   NextScript,
 } from "next/document";
