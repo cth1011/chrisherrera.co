@@ -1,4 +1,3 @@
-import Thumbnail from "components/Thumbnail";
 import type { NextPage, GetStaticProps } from "next";
 import Bio from "components/Bio";
 import { IPost } from "types/post";

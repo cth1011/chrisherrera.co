@@ -34,6 +34,6 @@ tracking-wider whitespace-nowrap
 `;
 
 const FlexGrow = tw.div`flex-1 `;
-const Links = tw.div`flex flex-row gap-4`;
+const Links = tw.div`flex-row gap-4 hidden sm:flex`;
 
 const NavMain = tw.a`text-xl font-bold`;

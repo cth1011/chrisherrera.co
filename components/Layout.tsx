@@ -19,6 +19,6 @@ const Layout: React.FC<Props> = ({ children }: Props) => {
 
 export default Layout;
 
-const Container = tw.div`py-12 px-14 ml-auto mr-auto max-w-[50%]`;
+const Container = tw.div`py-12 px-14 ml-auto mr-auto lg:max-w-[55%]`;
 const Body = tw.div`mx-auto`;
 const Main = tw.main`pt-4 pb-12 `;
