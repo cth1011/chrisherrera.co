@@ -2,10 +2,13 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
+      "assets/*": ["styles/assets/*"],
       "components/*": ["components/*"],
       "img/*": ["images/*"],
       "pages/*": ["pages/*"],
-      "styles/*": ["styles/*"]
+      "styles/*": ["styles/*"],
+      "context/*": ["context/*"],
+      "types/*": ["types/*"]
     },
     "target": "es6",
     "lib": ["dom", "dom.iterable", "esnext"],

@@ -1,0 +1,21 @@
+---
+title: Creating a Japan COVID-19 Tracker using Mapbox GL JS and d3.js
+
+date: "2021-03-07"
+tags: Projects
+description: "I was taking up the Mapbox GL JS exam, and I decided that I wanted to fully flex my web development skills for this exam."
+---
+
+import tw, { styled } from "twin.macro";
+
+## Introduction
+
+I was taking up the Mapbox GL JS exam, and I decided that I wanted to fully flex my web development skills for this exam. I used a [COVID-19 Japan API](https://github.com/ryo-ma/covid19-japan-web-api#data-sources) that was updated daily. It was pretty straightforward to use with the necessary data points I wanted to project onto a map. I visualized all prefectures of Japan with their corresponding cases and tests.
+
+<img src="/assets/mapbox-exam/covid-japan.gif" layout="fill" />
+
+Using d3.js, I visualized the trend of daily cases and tests added. The case breakdown was also visualized by <span tw='text-red-50'>Severe</span>, <span tw='text-orange-50'>Active</span>, <span tw='text-green-50'>Recovered</span>, and <span tw='text-grey-50'>Death</span> through a stacked bar chart. I love the animations when hovering over from one prefecture to another.
+
+It was a fun web application to build in my past time, and well worth the time spent developing. For the record, I passed the Mapbox exam. I'm looking forward to building more web applications using Mapbox.
+
+Here's the link to the [tracker](https://covid-japan.web.app/)!
