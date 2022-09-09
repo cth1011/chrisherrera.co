@@ -1,29 +1,35 @@
-import type { NextPage, GetStaticProps } from "next";
-import Bio from "components/Bio";
-import { IPost } from "types/post";
+import orderBy from "lodash/orderBy";
+import moment from "moment";
 import Link from "next/link";
 import { getAllPosts } from "utils/mdxUtils";
 import tw from "twin.macro";
+
+import Bio from "components/Bio";
+
+import type { NextPage, GetStaticProps } from "next";
+import { IPost } from "types/post";
 
 type Props = {
   posts: [IPost];
 };
 
 const Home: NextPage<Props> = ({ posts }: Props) => {
+  const sortedPosts = orderBy(posts, "date", "desc");
   return (
     <div>
       <Bio />
 
       <Posts>
-        {posts.map((post) => (
+        {sortedPosts.map((post) => (
           <div key={post.slug}>
             <div className="mb-4"></div>
-            <h2 className="text-2xl font-bold">
+            <Date>{moment(post.date).format("MMM DD, YYYY")}</Date>
+            <h2 className="text-2xl font-bold mb-2">
               <Link href={`/posts/${post.slug}`} passHref>
                 <a className="post-title">{post.title}</a>
               </Link>
             </h2>
-            <Date>{post.date}</Date>
+
             <p>{post.description}</p>
           </div>
         ))}
