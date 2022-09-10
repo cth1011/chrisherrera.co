@@ -36,10 +36,8 @@ export default Custom404;
 const Container = tw.div`
     flex flex-col items-center
     ml-auto mr-auto 
-    max-h-[400px]
-
-
 `;
 const ImageContainer = tw.div`
     sm:px-10 py-4
+
 `;
