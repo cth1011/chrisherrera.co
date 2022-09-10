@@ -10,8 +10,10 @@ const About: React.FC = () => {
         of the time. First of all, thank you for taking the time to read my
         blog.
       </p>
+      <br />
       <h3>About Me</h3>
       <p> Here are a few things about me...</p>
+      <br />
       <TraitContainer>
         <Row>
           <Item>
