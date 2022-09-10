@@ -6,6 +6,7 @@ import tw from "twin.macro";
 
 import Bio from "components/Bio";
 import Divider from "components/Divider";
+import Footer from "components/Footer";
 
 import type { NextPage, GetStaticProps } from "next";
 import { IPost } from "types/post";
@@ -21,6 +22,7 @@ const Home: NextPage<Props> = ({ posts }: Props) => {
       <Bio />
       <Divider />
       <Posts>
+        <h1> Recent Activity</h1>
         {sortedPosts.map((post) => (
           <div key={post.slug}>
             <div className="mb-4"></div>
@@ -35,19 +37,14 @@ const Home: NextPage<Props> = ({ posts }: Props) => {
           </div>
         ))}
       </Posts>
-
-      <Footer>
-        © 2020, Built by Chris
-        {` `}
-      </Footer>
+      <Divider />
     </div>
   );
 };
 
 export default Home;
 
-const Posts = tw.div`space-y-12`;
-const Footer = tw.footer`pt-12`;
+const Posts = tw.div`space-y-2`;
 
 export const getStaticProps: GetStaticProps = async () => {
   const posts = getAllPosts(["title", "slug", "date", "description"]);
