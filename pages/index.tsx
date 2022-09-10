@@ -5,6 +5,7 @@ import { getAllPosts } from "utils/mdxUtils";
 import tw from "twin.macro";
 
 import Bio from "components/Bio";
+import Divider from "components/Divider";
 
 import type { NextPage, GetStaticProps } from "next";
 import { IPost } from "types/post";
@@ -18,7 +19,7 @@ const Home: NextPage<Props> = ({ posts }: Props) => {
   return (
     <div>
       <Bio />
-
+      <Divider />
       <Posts>
         {sortedPosts.map((post) => (
           <div key={post.slug}>
