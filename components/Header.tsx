@@ -27,13 +27,13 @@ const Header: FC = () => {
 
 export default Header;
 
-const Container = tw.div`
-flex flex-row items-center 
-pt-5 pb-10 
-tracking-wider whitespace-nowrap
+const Container = tw.header`
+  flex flex-row items-center 
+  pt-5 pb-10 
+  tracking-wider whitespace-nowrap
 `;
 
 const FlexGrow = tw.div`flex-1 `;
 const Links = tw.div`flex-row gap-4 hidden sm:flex`;
 
-const NavMain = tw.a`text-xl font-bold`;
+const NavMain = tw.a`sm:text-xl font-bold`;
