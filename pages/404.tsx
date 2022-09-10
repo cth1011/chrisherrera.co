@@ -34,10 +34,12 @@ const Custom404 = () => (
 export default Custom404;
 
 const Container = tw.div`
-    flex flex-col items-center 
+    flex flex-col items-center
     ml-auto mr-auto 
-    max-w-[70%] max-h-[400px]
+    max-h-[400px]
+
+
 `;
 const ImageContainer = tw.div`
-    px-10 py-4
+    sm:px-10 py-4
 `;
