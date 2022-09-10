@@ -4,6 +4,4 @@ export interface IPost {
     thumbnail:string;
     title:string;
     description:string;
-    prerequisites:string[];
-    stacks:string[];
 }

@@ -9,7 +9,6 @@ import Thumbnail from "components/Thumbnail";
 import { IPost } from "types/post";
 import { getPost, getAllPosts } from "utils/mdxUtils";
 import { ParsedUrlQuery } from "querystring";
-import Stacks from "components/Stacks";
 
 type Props = {
   source: MDXRemoteSerializeResult;
@@ -23,7 +22,6 @@ const ResponsiveImage = (props: any) => (
 // components to render
 const components = {
   img: ResponsiveImage,
-  Stacks,
 };
 
 const PostPage: React.FC<Props> = ({ source, frontMatter }: Props) => {
@@ -45,9 +43,6 @@ const PostPage: React.FC<Props> = ({ source, frontMatter }: Props) => {
   return (
     <div>
       <article className="prose prose-green">
-        {/* <div className="mb-4">
-          <Thumbnail title={frontMatter.title} src={frontMatter.thumbnail} />
-        </div> */}
         <h1>{frontMatter.title}</h1>
         <p>{frontMatter.description}</p>
         <MDXRemote components={components} {...source} />
