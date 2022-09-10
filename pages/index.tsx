@@ -23,7 +23,7 @@ const Home: NextPage<Props> = ({ posts }: Props) => {
         {sortedPosts.map((post) => (
           <div key={post.slug}>
             <div className="mb-4"></div>
-            <Date>{moment(post.date).format("MMM DD, YYYY")}</Date>
+            <small>{moment(post.date).format("MMM DD, YYYY")}</small>
             <h2 className="text-2xl font-bold mb-2">
               <Link href={`/posts/${post.slug}`} passHref>
                 <a className="post-title">{post.title}</a>
@@ -45,7 +45,6 @@ const Home: NextPage<Props> = ({ posts }: Props) => {
 
 export default Home;
 
-const Date = tw.small`mb-10`;
 const Posts = tw.div`space-y-12`;
 const Footer = tw.footer`pt-12`;
 
