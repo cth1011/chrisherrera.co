@@ -12,20 +12,15 @@ const Custom404 = () => (
     <ImageContainer>
       <Image src={FourZeroFour} />
     </ImageContainer>
-
     <h2>Looks like the page went on vacation</h2>
     <small>
-      You can head back to our{" "}
+      You can head back to my{" "}
       <Link href="/" passHref>
-        <strong>
-          <a className="nav">homepage</a>
-        </strong>
+        <NavLink className="nav">homepage</NavLink>
       </Link>{" "}
       or{" "}
       <Link href="/blog" passHref>
-        <strong>
-          <a className="nav">blog</a>
-        </strong>
+        <NavLink className="nav">blog</NavLink>
       </Link>
     </small>
   </Container>
@@ -35,9 +30,14 @@ export default Custom404;
 
 const Container = tw.div`
     flex flex-col items-center
-    ml-auto mr-auto 
+    space-y-2
 `;
 const ImageContainer = tw.div`
     sm:px-10 py-4
+`;
 
+const NavLink = tw.a`
+font-semibold
+dark:border-b-gray-900
+ dark:hover:border-b-white
 `;

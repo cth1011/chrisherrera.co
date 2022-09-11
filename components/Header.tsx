@@ -5,35 +5,38 @@ import Link from "next/link";
 
 const Header: FC = () => {
   return (
-    <Container>
+    <NavBar>
       <Link href="/" passHref>
-        <NavMain className="nav">CHRIS HERRERA</NavMain>
+        <NavLink className="nav sm:text-xl font-bold">CHRIS HERRERA</NavLink>
       </Link>
       <FlexGrow />
       <Links>
         <Link href="/about" passHref>
-          <a className="nav">About</a>
+          <NavLink className="nav">About</NavLink>
         </Link>
         <Link href="/projects" passHref>
-          <a className="nav">Projects</a>
+          <NavLink className="nav">Projects</NavLink>
         </Link>
         <Link href="/blog" passHref>
-          <a className="nav">Blog</a>
+          <NavLink className="nav">Blog</NavLink>
         </Link>
       </Links>
-    </Container>
+    </NavBar>
   );
 };
 
 export default Header;
 
-const Container = tw.header`
+const NavBar = tw.header`
   flex flex-row items-center 
   pt-5 pb-10 
   tracking-wider whitespace-nowrap
+  lg:max-w-[55%] mx-auto
 `;
 
 const FlexGrow = tw.div`flex-1 `;
 const Links = tw.div`flex-row gap-4 hidden sm:flex`;
 
-const NavMain = tw.a`sm:text-xl font-bold`;
+const NavLink = tw.a`
+dark:border-b-gray-900
+ dark:hover:border-b-white`;
