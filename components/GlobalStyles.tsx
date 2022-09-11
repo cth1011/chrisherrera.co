@@ -11,10 +11,9 @@ p {
   line-height: 2;
 }
 .nav {
-  border-bottom: 1px solid #ffffff;
+  border-bottom: 1px solid transparent;
   letter-spacing: 1px;
   transition: all 0.5s;
-
 }
 .nav:hover {
   border-bottom: 1px solid #b1a7a6;

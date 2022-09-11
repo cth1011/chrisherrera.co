@@ -3,15 +3,18 @@ import Layout from "components/Layout";
 import { MdxComponentsProvider } from "context/mdxContext";
 import GlobalStyles from "components/GlobalStyles";
 import "tailwindcss/tailwind.css";
+import { MyThemeContextProvider } from "store/theme";
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
-    <MdxComponentsProvider>
-      <Layout>
-        <GlobalStyles />
-        <Component {...pageProps} />
-      </Layout>
-    </MdxComponentsProvider>
+    <MyThemeContextProvider>
+      <MdxComponentsProvider>
+        <Layout>
+          <GlobalStyles />
+          <Component {...pageProps} />
+        </Layout>
+      </MdxComponentsProvider>
+    </MyThemeContextProvider>
   );
 };
 

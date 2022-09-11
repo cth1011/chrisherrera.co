@@ -98,7 +98,7 @@ const Container = tw.footer`
     border-gray-200
     border-t-2
     lg:container min-w-full
-    py-8 sm:py-12 px-8 sm:px-14
+    py-8 sm:py-12 px-8 sm:px-14 mt-8
     dark:bg-gray-900 dark:border-gray-700
 `;
 
@@ -127,7 +127,6 @@ const NavLink = tw.span`
     self-center 
     sm:text-xl font-semibold whitespace-nowrap tracking-widest
     dark:text-white
-    dark:border-b-gray-900
     dark:hover:border-b-white
 `;
 

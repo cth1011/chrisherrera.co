@@ -1,4 +1,4 @@
-import React, { ReactNode, useState } from "react";
+import React, { ReactNode } from "react";
 import Head from "next/head";
 import tw from "twin.macro";
 
@@ -10,9 +10,8 @@ type Props = {
 };
 
 const Layout = ({ children }: Props) => {
-  const [IsDarkMode, setDarkMode] = useState<boolean>(true);
   return (
-    <Container className={IsDarkMode ? "dark" : ""}>
+    <Page>
       <Head>
         <title>Chris Herrera</title>
         <link rel="shortcut icon" href="CH.png" />
@@ -22,13 +21,13 @@ const Layout = ({ children }: Props) => {
         <Main>{children}</Main>
       </Section>
       <Footer />
-    </Container>
+    </Page>
   );
 };
 
 export default Layout;
 
-const Container = tw.div`
+const Page = tw.div`
 flex flex-col min-h-screen
 transition-all duration-1000
 `;
