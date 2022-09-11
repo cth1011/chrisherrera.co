@@ -42,7 +42,7 @@ const PostPage: React.FC<Props> = ({ source, frontMatter }: Props) => {
 
   return (
     <div>
-      <article className="prose prose-green">
+      <article className="prose prose-green dark:prose-dark">
         <h1>{frontMatter.title}</h1>
         <p>{frontMatter.description}</p>
         <MDXRemote components={components} {...source} />
