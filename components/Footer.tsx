@@ -94,12 +94,11 @@ const Footer = () => (
 export default Footer;
 
 const Container = tw.footer`
-    bg-white
     border-gray-200
     border-t-2
     lg:container min-w-full
     py-8 sm:py-12 px-8 sm:px-14 mt-8
-    dark:bg-gray-900 dark:border-gray-700
+    dark:border-gray-700
 `;
 
 const InnerContainer = tw.div`

@@ -44,7 +44,6 @@ const PostPage: React.FC<Props> = ({ source, frontMatter }: Props) => {
     <div>
       <article className="prose max-w-full prose-yellow dark:prose-dark">
         <h1>{frontMatter.title}</h1>
-        <p>{frontMatter.description}</p>
         <MDXRemote components={components} {...source} />
       </article>
     </div>
