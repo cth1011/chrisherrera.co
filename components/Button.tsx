@@ -2,14 +2,11 @@ import tw from "twin.macro";
 import Link from "next/link";
 
 type ButtonProps = {
-  href: "string";
   children: React.ReactNode;
 };
 
-const Button = ({ href, children }: ButtonProps) => (
-  <Link href={href}>
-    <StyledButton type="button">{children}</StyledButton>
-  </Link>
+const Button = ({ children }: ButtonProps) => (
+  <StyledButton type="button">{children}</StyledButton>
 );
 
 export default Button;

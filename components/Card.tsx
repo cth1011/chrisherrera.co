@@ -23,7 +23,7 @@ const Card = ({
   src,
   from,
   to,
-  href = "",
+  href = "/",
 }: CardProps) => (
   <Container>
     {src && (
