@@ -30,13 +30,13 @@ const Footer = () => (
             </List>
           </div>
           <div>
-            <Header>Follow us</Header>
+            <Header>Links</Header>
             <List>
               <li className="mb-4">
-                <a href="https://github.com/themesberg/flowbite">Github</a>
+                <Link href="/projects">Projects</Link>
               </li>
               <li>
-                <a href="https://discord.gg/4eeurUVvTy">Discord</a>
+                <Link href="/blog">Blog</Link>
               </li>
             </List>
           </div>
