@@ -65,7 +65,7 @@ const NavBar = tw.header`
   flex flex-row items-center 
   pt-5 pb-10 
   tracking-wider whitespace-nowrap
-  lg:max-w-[55%] mx-auto
+  lg:max-w-2xl mx-auto
 `;
 
 const FlexGrow = tw.div`flex-1 `;

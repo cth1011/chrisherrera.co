@@ -39,5 +39,5 @@ const Section = tw.div`
 `;
 
 const Main = tw.main`
-lg:max-w-[55%] mx-auto
+lg:max-w-2xl mx-auto
 `;

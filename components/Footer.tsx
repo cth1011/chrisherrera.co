@@ -103,7 +103,7 @@ const Container = tw.footer`
 
 const InnerContainer = tw.div`
     mx-auto
-    lg:max-w-[55%]
+    lg:max-w-2xl
 `;
 
 const TopSide = tw.div`
