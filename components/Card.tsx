@@ -4,6 +4,7 @@ import tw from "twin.macro";
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 
+import Badge from "components/Badge";
 import Button from "components/Button";
 
 type CardProps = {
@@ -12,8 +13,10 @@ type CardProps = {
   href?: string;
   title: string;
   description: string;
+  label?: string;
   from: string;
   to: string;
+  tags?: string[];
 };
 
 const Card = ({
@@ -23,6 +26,8 @@ const Card = ({
   src,
   from,
   to,
+  label = "Read More",
+  tags,
   href = "/",
 }: CardProps) => (
   <Container>
@@ -38,24 +43,33 @@ const Card = ({
       <small>
         {from} - {to}
       </small>
+      {tags && (
+        <Tags>
+          {tags.map((value, i) => (
+            <Badge key={i}>{value}</Badge>
+          ))}
+        </Tags>
+      )}
       <Description>{description}</Description>
       <Link href={href} passHref>
-        <Button>
-          Read more
-          <svg
-            aria-hidden="true"
-            className="ml-2 -mr-1 w-4 h-4"
-            fill="currentColor"
-            viewBox="0 0 20 20"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              fillRule="evenodd"
-              d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-              clipRule="evenodd"
-            ></path>
-          </svg>
-        </Button>
+        <a>
+          <Button>
+            {label}
+            <svg
+              aria-hidden="true"
+              className="ml-2 -mr-1 w-4 h-4"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fillRule="evenodd"
+                d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                clipRule="evenodd"
+              ></path>
+            </svg>
+          </Button>
+        </a>
       </Link>
     </Body>
   </Container>
@@ -64,7 +78,7 @@ const Card = ({
 export default Card;
 
 const Container = tw.div`
-    max-w-sm bg-white rounded-lg 
+    max-w-md bg-white rounded-lg 
     mr-2 mb-2
     border border-gray-200 shadow-md 
     transition-all
@@ -78,6 +92,8 @@ const Title = tw.h5`
     text-2xl font-bold tracking-tight text-gray-900 
     dark:text-white
 `;
+
+const Tags = tw.div`pt-2`;
 
 const Description = tw.p`
     my-3 font-normal 
