@@ -6,7 +6,6 @@ import tw from "twin.macro";
 
 import Bio from "components/Bio";
 import Divider from "components/Divider";
-import Footer from "components/Footer";
 
 import type { NextPage, GetStaticProps } from "next";
 import { IPost } from "types/post";
