@@ -1,15 +1,13 @@
 import React from "react";
-import tw from "twin.macro";
+import tw, { TwStyle } from "twin.macro";
 
-import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 
 import Badge from "components/Badge";
 import Button from "components/Button";
 
 type CardProps = {
-  src?: StaticImageData;
-  alt?: string;
+  img?: TwStyle;
   href?: string;
   title: string;
   description: string;
@@ -22,8 +20,7 @@ type CardProps = {
 const Card = ({
   title,
   description,
-  alt,
-  src,
+  img,
   from,
   to,
   label = "Read More",
@@ -31,11 +28,12 @@ const Card = ({
   href = "/",
 }: CardProps) => (
   <Container>
-    {src && (
+    {/* {src && (
       <Link href={href}>
         <Img src={src} alt={alt} placeholder="blur" />
       </Link>
-    )}
+    )} */}
+    <ImgContainer css={[img]} />
     <Body>
       <Link href={href}>
         <Title>{title}</Title>
@@ -86,16 +84,21 @@ const Container = tw.div`
     hover:bg-gray-100
     dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700
 `;
-const Img = tw(Image)`rounded-t-lg`;
+const ImgContainer = tw.div`
+w-full h-[200px]
+rounded-t-lg
+bg-cover
+bg-center
+bg-no-repeat `;
 const Body = tw.div`p-5`;
 const Title = tw.h5`
-    text-2xl font-bold tracking-tight text-gray-900 
+    text-2xl font-bold tracking-tight text-gray-900 whitespace-nowrap
     dark:text-white
 `;
 
 const Tags = tw.div`pt-2`;
 
 const Description = tw.p`
-    my-3 font-normal 
+    my-3 font-normal min-h-[180px]
     text-gray-700 dark:text-gray-400
 `;

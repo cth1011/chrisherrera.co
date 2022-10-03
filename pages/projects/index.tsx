@@ -3,21 +3,18 @@ import tw from "twin.macro";
 
 import Card from "components/Card";
 
-import Japan from "public/assets/mapbox-exam/covid-japan.jpg";
-import HIV from "styles/assets/projects/HIV.png";
-import Hermosa from "styles/assets/projects/hermosa.png";
-
 const projects = [
   {
     title: "Personal Blog",
     description: `Created a personal blog using NextJS, 
     TailwindCSS, and TypeScript. It started out with GatsbyJS, but I
     I decided to migrate the entire platform to NextJS.`,
-    src: HIV,
+    img: tw`bg-blog`,
     from: "Feb 2020",
     to: "Present",
     href: "projects/hiv",
-    tags: ["ReactJS", "TypeScript", "TailwindCSS"],
+    label: "Visit Github Repo",
+    tags: ["React", "TypeScript", "TailwindCSS"],
   },
   {
     title: "Covid-19 Japan Tracker",
@@ -26,11 +23,12 @@ const projects = [
     shopify store in the Philippines. They
     sell over 200 products with over 20 brands.
     `,
-    src: Japan,
-    href: "/posts/mapbox-exam",
+    img: tw`bg-covid`,
+    href: "https://github.com/cth1011/covid-japan",
     from: "Jan 2020",
     to: "Mar 2020",
-    tags: ["Shopify", "Liquid"],
+    label: "Visit Github Repo",
+    tags: ["React", "Mapbox JS", "d3.js"],
   },
   {
     title: "Hermosa Beauty Store",
@@ -39,7 +37,7 @@ const projects = [
     shopify store in the Philippines. They
     sell over 200 products with over 20 brands.
     `,
-    src: Hermosa,
+    img: tw`bg-hermosa`,
     href: "https://hermosabeautystore.com/",
     from: "Jan 2020",
     to: "Mar 2020",
@@ -47,10 +45,10 @@ const projects = [
     tags: ["Shopify", "Liquid"],
   },
   {
-    title: "Inaccessible HIV Centers in the Philippines",
+    title: "Inaccessible HIV Centers",
     description: `Developed a geospatial web application that can identify
     inaccesible HIV centers based on the your area in the Philippines.`,
-    src: HIV,
+    img: tw`bg-hiv`,
     from: "Sept 2018",
     to: "Dec 2018",
     tags: ["Mapbox JS", "Javascript"],
