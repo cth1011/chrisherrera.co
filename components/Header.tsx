@@ -26,9 +26,9 @@ const Header = () => {
         <Link href="/projects" passHref>
           <NavLink className="nav">Projects</NavLink>
         </Link>
-        <Link href="/blog" passHref>
+        {/* <Link href="/blog" passHref>
           <NavLink className="nav">Blog</NavLink>
-        </Link>
+        </Link> */}
         <DarkModeButton type="button" onClick={toggleThemeHandler}>
           {isDarkTheme ? (
             <svg
