@@ -46,10 +46,7 @@ const Footer = () => (
       <BottomSide>
         <BuiltBy>© 2020, Built by Chris</BuiltBy>
         <SocialMedia>
-          <Link
-            href="https://www.linkedin.com/in/christopher-herrera-6762a9bb/"
-            passHref
-          >
+          <Link href="https://github.com/cth1011" passHref>
             <SocialMediaLink>
               <svg
                 className="w-5 h-5"
