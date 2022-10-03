@@ -7,7 +7,7 @@ import Badge from "components/Badge";
 import Button from "components/Button";
 
 type CardProps = {
-  img?: TwStyle;
+  img?: any;
   href?: string;
   title: string;
   description: string;
@@ -20,7 +20,7 @@ type CardProps = {
 const Card = ({
   title,
   description,
-  img,
+  img = tw`bg-covid`,
   from,
   to,
   label = "Read More",
@@ -33,7 +33,7 @@ const Card = ({
         <Img src={src} alt={alt} placeholder="blur" />
       </Link>
     )} */}
-    <ImgContainer css={[img]} />
+    <ImgContainer className={img} />
     <Body>
       <Link href={href}>
         <Title>{title}</Title>
