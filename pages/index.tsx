@@ -37,7 +37,6 @@ const Home: NextPage<Props> = ({ posts }: Props) => {
           </div>
         ))}
       </Posts>
-      <Divider />
     </div>
   );
 };
