@@ -45,7 +45,7 @@ const projects = [
   {
     title: "Inaccessible HIV Centers",
     description: `Developed a geospatial web application that can identify
-    inaccesible HIV centers based on the your area in the Philippines.`,
+    inaccesible HIV centers based on your area in the Philippines.`,
     img: tw`bg-hiv`,
     from: "Sept 2018",
     to: "Dec 2018",
