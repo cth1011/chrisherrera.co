@@ -22,6 +22,12 @@ module.exports = {
             },
           },
         }),
+        backgroundImage: {
+          'covid': "url('/assets/mapbox-exam/covid-japan.jpg')",
+          'blog': "url('/assets/blog.png')",
+          'hermosa': "url('/assets/hermosa.png')",
+          'hiv': "url('/assets/HIV.png')"
+        }
       },
       container: {
       center: true,
