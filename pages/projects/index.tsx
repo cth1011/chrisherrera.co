@@ -19,9 +19,7 @@ const projects = [
   {
     title: "Covid-19 Japan Tracker",
     description: `
-    I helped a few friends setup their 
-    shopify store in the Philippines. They
-    sell over 200 products with over 20 brands.
+    For the mapbox certification, I created a Japan COVID-19 Dashboard that allows users to view the active, testing, death, and recovery cases.
     `,
     img: tw`bg-covid`,
     href: "https://github.com/cth1011/covid-japan",
