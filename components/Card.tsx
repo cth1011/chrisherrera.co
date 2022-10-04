@@ -33,7 +33,7 @@ const Card = ({
         <Img src={src} alt={alt} placeholder="blur" />
       </Link>
     )} */}
-    <ImgContainer className={img} />
+    <ImgContainer css={[img]} />
     <Body>
       <Link href={href}>
         <Title>{title}</Title>
