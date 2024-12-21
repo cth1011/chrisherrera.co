@@ -5,55 +5,51 @@ const About: React.FC = () => {
   return (
     <>
       <p>
-        Hi, it&apos;s Chris. I am a self-taught programmer, data analyst, and
-        data visualization developer from the Philippines, working remotely most
-        of the time. First of all, thank you for taking the time to read my
-        blog.
+        Hi, I&apos;m Christopher Herrera! I&apos;m a senior software engineer 
+        passionate about designing and delivering innovative digital solutions 
+        that make an impact. Thanks for visiting my blog!
       </p>
       <br />
       <h3>About Me</h3>
-      <p> Here are a few things about me...</p>
+      <p>Here&apos;s a bit about my journey and what you&apos;ll find here...</p>
       <br />
       <TraitContainer>
         <Row>
           <Item>
-            <b>Weight Lifter</b>
+            <b>Professional Experience</b>
             <p>
-              Ever since high school, I&apos;ve always been into exercising. It
-              only started in college when I wanted to start bulking up.
-              I&apos;m a true believer of the StrongLifts routine, and believe
-              you always need to lift heavier on your next session.
+              I&apos;m currently a Senior Software Engineer at PeopleConnect, 
+              where I design and optimize modern web applications to enhance 
+              user experiences. With over six years of experience, I&apos;ve 
+              built AI-integrated applications, geospatial tools, and secure 
+              authentication systems.
             </p>
           </Item>
           <Item>
-            <b>Reader</b>
+            <b>Haven Project</b>
             <p>
-              I&apos;m a big fan of reading non-fiction. I love new ideas that
-              can change my perspective. I&apos;ll soon create my own personal
-              reading list from a wide range of categories including business,
-              psychology, and self-help.
+              One of my key projects is <b>Haven</b>, an AI-powered chat app I 
+              developed using Next.js and Vercel. It&apos;s used by over 200 
+              subscribers and showcases my ability to deliver innovative 
+              solutions ahead of schedule in competitive markets.
             </p>
           </Item>
         </Row>
         <Row>
           <Item>
-            <b>Learner</b>
+            <b>What I Share</b>
             <p>
-              I love learning new things. I&apos;m a firm believer of concept of{" "}
-              <a href="https://jamesclear.com/continuous-improvement">
-                1% improvement
-              </a>{" "}
-              each day. I try to seek out a sense of progression in any area of
-              my life whether it&apos;s weight lifting, cooking, or programming.
+              On this blog, I post about my technical projects, learnings in web 
+              development and AI integration, and reflections on navigating a 
+              fast-paced tech career. It&apos;s a space for growth and sharing ideas.
             </p>
           </Item>
           <Item>
-            <b>Cooking</b>
+            <b>Life Beyond Code</b>
             <p>
-              There&apos;s something about cooking that feels so meditative. I
-              wouldn&apos;t say I&apos;m a great cook, but I fell in love with
-              the process. Japanese cuisine is my speciality and favorite, but I
-              try to learn new recipes from time-to-time
+              Outside work, I&apos;m a lifelong learner who loves exploring new 
+              ideas, cooking Japanese cuisine, and staying active through 
+              weightlifting. I find joy in continuous improvement and personal growth.
             </p>
           </Item>
         </Row>
@@ -66,4 +62,4 @@ export default About;
 
 const TraitContainer = tw.div`flex flex-col`;
 const Row = tw.div`flex flex-row gap-5 py-3 justify-between`;
-const Item = tw.div` w-1/2`;
+const Item = tw.div`w-1/2`;

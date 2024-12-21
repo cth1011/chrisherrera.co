@@ -5,7 +5,7 @@ import Link from "next/link";
 const Footer = () => (
   <Container>
     <InnerContainer>
-      <Link href="/" passHref>
+      <Link legacyBehavior href="/" passHref>
         <a className="flex items-center">
           <NavLink className="nav">CHRIS HERRERA</NavLink>
         </a>
@@ -19,34 +19,23 @@ const Footer = () => (
         </Description>
         <Grid>
           <div>
-            <Header>Resources</Header>
-            <List>
-              <li className="mb-4">
-                <a href="https://flowbite.com/">Flowbite</a>
-              </li>
-              <li>
-                <a href="https://tailwindcss.com/">Tailwind CSS</a>
-              </li>
-            </List>
-          </div>
-          <div>
             <Header>Links</Header>
             <List>
               <li className="mb-4">
-                <Link href="/projects">Projects</Link>
-              </li>
-              <li>
-                <Link href="/blog">Blog</Link>
-              </li>
-            </List>
-          </div>
-        </Grid>
+              <Link legacyBehavior href="/projects">Projects</Link>
+            </li>
+            <li>
+              <Link href="/blog">Blog</Link>
+            </li>
+          </List>
+        </div>
+      </Grid>
       </TopSide>
       <Divider />
       <BottomSide>
         <BuiltBy>© 2020, Built by Chris</BuiltBy>
         <SocialMedia>
-          <Link href="https://github.com/cth1011" passHref>
+          <Link legacyBehavior href="https://github.com/cth1011" passHref>
             <SocialMediaLink>
               <svg
                 className="w-5 h-5"
@@ -63,7 +52,7 @@ const Footer = () => (
               <span className="sr-only">GitHub account</span>
             </SocialMediaLink>
           </Link>
-          <Link
+          <Link legacyBehavior
             href="https://www.linkedin.com/in/christopher-herrera-6762a9bb/"
             passHref
           >
@@ -127,8 +116,8 @@ const NavLink = tw.span`
 `;
 
 const Grid = tw.div`
-    grid grid-cols-2 gap-8 
-    sm:gap-6 sm:grid-cols-2
+    grid grid-cols-1 gap-8 
+    sm:gap-6 sm:grid-cols-1
 `;
 
 const Header = tw.h2`

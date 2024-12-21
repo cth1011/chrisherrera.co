@@ -28,14 +28,9 @@ const Card = ({
   href = "/",
 }: CardProps) => (
   <Container>
-    {/* {src && (
-      <Link href={href}>
-        <Img src={src} alt={alt} placeholder="blur" />
-      </Link>
-    )} */}
     <ImgContainer css={[img]} />
     <Body>
-      <Link href={href}>
+      <Link legacyBehavior href={href}>
         <Title>{title}</Title>
       </Link>
       <small>
@@ -49,7 +44,7 @@ const Card = ({
         </Tags>
       )}
       <Description>{description}</Description>
-      <Link href={href} passHref>
+      <Link legacyBehavior href={href} passHref>
         <a>
           <Button>
             {label}

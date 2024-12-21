@@ -5,16 +5,15 @@ import Card from "components/Card";
 
 const projects = [
   {
-    title: "Personal Blog",
-    description: `Created a personal blog using NextJS, 
-    TailwindCSS, and TypeScript. It started out with GatsbyJS, but I
-    I decided to migrate the entire platform to NextJS.`,
-    img: tw`bg-blog`,
-    from: "Feb 2020",
+    title: "Haven: AI Chat",
+    description: `Developed “Haven,” a web app using Next.js and Vercel, integrating a custom AI model hosted on GCP. 
+    The app is designed as a modern chat companion.`,
+    img: tw`bg-blog`, // Replace with your actual styling class or image
+    from: "May 2023",
     to: "Present",
-    href: "projects/hiv",
-    label: "Visit Github Repo",
-    tags: ["React", "TypeScript", "TailwindCSS"],
+    href: "https://haven-chat.com",
+    label: "Visit Website",
+    tags: ["Next.js", "tRPC", "GCP", "React"],
   },
   {
     title: "Covid-19 Japan Tracker",

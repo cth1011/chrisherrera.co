@@ -27,7 +27,7 @@ const Home: NextPage<Props> = ({ posts }: Props) => {
             <div className="mb-4"></div>
             <small>{moment(post.date).format("MMM DD, YYYY")}</small>
             <h2 className="text-2xl font-bold mb-2">
-              <Link href={`/posts/${post.slug}`} passHref>
+              <Link legacyBehavior href={`/posts/${post.slug}`} passHref>
                 <a className="post-title">{post.title}</a>
               </Link>
             </h2>

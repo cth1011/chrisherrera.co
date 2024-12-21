@@ -15,11 +15,11 @@ const Custom404 = () => (
     <h2>Looks like the page went on vacation</h2>
     <small>
       You can head back to my{" "}
-      <Link href="/" passHref>
+      <Link legacyBehavior href="/" passHref>
         <NavLink className="nav">homepage</NavLink>
       </Link>{" "}
       or{" "}
-      <Link href="/blog" passHref>
+      <Link legacyBehavior href="/blog" passHref>
         <NavLink className="nav">blog</NavLink>
       </Link>
     </small>

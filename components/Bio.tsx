@@ -7,12 +7,9 @@ const Bio: React.FC = () => (
   <Container>
     <Avatar src={profilePic} alt="profile picture" height={70} width={70} />
     <Description>
-      Hi! I&apos;m <strong>Christopher Herrera</strong>, and I&apos;m happy to
-      welcome you to my blog. I&apos;m currently pursuing a Master&apos;s degree
-      in Information Management at the University of Washington. I formerly
-      worked as a Software Engineer for Thinking Machines Data Science Inc, a
-      data science startup in the Philippines. I post stuff about my learnings,
-      side projects, and my life in general.
+        Hi, I&apos;m Christopher Herrera! I&apos;m a senior software engineer 
+        passionate about designing and delivering innovative digital solutions 
+        that make an impact. Thanks for visiting my blog!
     </Description>
   </Container>
 );

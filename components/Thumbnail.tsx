@@ -20,7 +20,7 @@ const Thumbnail: React.FC<Props> = ({ title, src, slug }: Props) => {
   return (
     <>
       {slug ? (
-        <Link href={`/posts/${slug}`}>
+        <Link legacyBehavior href={`/posts/${slug}`}>
           <a aria-label={title}>{image}</a>
         </Link>
       ) : (

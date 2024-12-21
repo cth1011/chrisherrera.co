@@ -15,15 +15,15 @@ const Header = () => {
   }
   return (
     <NavBar>
-      <Link href="/" passHref>
+      <Link legacyBehavior href="/" passHref>
         <NavLink className="nav sm:text-xl font-bold">CHRIS HERRERA</NavLink>
       </Link>
       <FlexGrow />
       <Links>
-        <Link href="/about" passHref>
+        <Link legacyBehavior href="/about" passHref>
           <NavLink className="nav">About</NavLink>
         </Link>
-        <Link href="/projects" passHref>
+        <Link legacyBehavior href="/projects" passHref>
           <NavLink className="nav">Projects</NavLink>
         </Link>
         {/* <Link href="/blog" passHref>
