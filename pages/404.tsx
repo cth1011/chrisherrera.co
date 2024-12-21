@@ -10,7 +10,7 @@ const Custom404 = () => (
     <h1>Whoops!</h1>
     <small>Well this is embarassing...</small>
     <ImageContainer>
-      <Image src={FourZeroFour} />
+      <Image alt="missing page" src={FourZeroFour} />
     </ImageContainer>
     <h2>Looks like the page went on vacation</h2>
     <small>
