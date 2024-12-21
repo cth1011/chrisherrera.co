@@ -1,21 +1,78 @@
 ---
 title: Creating a Japan COVID-19 Tracker using Mapbox GL JS and d3.js
-
 date: "2021-03-07"
 tags: Projects
 description: "I was taking up the Mapbox GL JS exam, and I decided that I wanted to fully flex my web development skills for this exam."
 ---
 
-import tw, { styled } from "twin.macro";
-
 ## Introduction
 
-I was taking up the Mapbox GL JS exam, and I decided that I wanted to fully flex my web development skills for this exam. I used a [COVID-19 Japan API](https://github.com/ryo-ma/covid19-japan-web-api#data-sources) that was updated daily. It was pretty straightforward to use with the necessary data points I wanted to project onto a map. I visualized all prefectures of Japan with their corresponding cases and tests.
+While preparing for the Mapbox GL JS exam, I challenged myself to create a project that would demonstrate my ability to integrate multiple technologies into a cohesive, interactive web application. I settled on developing a <span class="font-bold dark:text-white">Japan COVID-19 Tracker</span> that combines <span class="font-bold dark:text-white">Mapbox GL JS</span> for geospatial visualization and <span class="font-bold dark:text-white">d3.js</span> for dynamic data-driven visualizations.
 
-<img src="/assets/mapbox-exam/covid-japan.gif" layout="fill" />
+The app uses data from the [COVID-19 Japan API](https://github.com/ryo-ma/covid19-japan-web-api#data-sources), which provides daily updates on cases, tests, and other key metrics. The goal was to project this data onto a map of Japan and pair it with insightful visualizations to make the information both accessible and engaging.
 
-Using d3.js, I visualized the trend of daily cases and tests added. The case breakdown was also visualized by <span tw='text-red-50'>Severe</span>, <span tw='text-orange-50'>Active</span>, <span tw='text-green-50'>Recovered</span>, and <span tw='text-grey-50'>Death</span> through a stacked bar chart. I love the animations when hovering over from one prefecture to another.
+---
 
-It was a fun web application to build in my past time, and well worth the time spent developing. For the record, I passed the Mapbox exam. I'm looking forward to building more web applications using Mapbox.
+<img src="/assets/mapbox-exam/covid-japan.gif" layout="fill" alt="Screenshot of the COVID-19 Japan Tracker"/>
 
-Here's the link to the [tracker](https://covid-japan.web.app/)!
+---
+
+## Features and Implementation
+
+### Mapping COVID-19 Data with Mapbox GL JS
+
+Using <span class="font-bold dark:text-white">Mapbox GL JS</span>, I visualized all 47 prefectures of Japan, overlaying the map with real-time COVID-19 data. Each prefecture's color represents the severity of cases, with hover animations that provide detailed case breakdowns. This interaction was designed to make it easy for users to explore trends across the country visually.
+
+#### Highlights:
+- <span class="font-bold dark:text-white">Prefecture-level visualization:</span> Each prefecture dynamically updates its color based on case severity.
+- <span class="font-bold dark:text-white">Hover interactivity:</span> Displays details like total cases, tests, and population percentages.
+- <span class="font-bold dark:text-white">Custom map styles:</span> Tailored aesthetics to balance functionality and visual appeal.
+
+---
+
+### Visualizing Trends with d3.js
+
+To complement the map, I used <span class="font-bold dark:text-white">d3.js</span> to create a stacked bar chart that showcases the daily trend of cases and tests. This chart breaks down cases into four categories:
+- <span class='text-red-600'>Severe</span>
+- <span class='text-orange-600'>Active</span>
+- <span class='text-green-600'>Recovered</span>
+- <span class='text-grey-600'>Deaths</span>
+
+#### Why d3.js?
+d3.js excels at handling dynamic datasets and creating custom animations. By integrating it into the tracker, I was able to:
+- Add transitions that respond to user interactions (e.g., hovering over a prefecture filters the data on the chart).
+- Clearly visualize the progression of the pandemic in Japan, providing an intuitive understanding of the data.
+
+---
+
+### The Challenges I Faced
+
+Building this tracker came with its share of challenges:
+1. <span class="font-bold dark:text-white">Handling large datasets:</span> The API provided detailed data, which required efficient processing to ensure smooth performance.
+2. <span class="font-bold dark:text-white">Syncing interactions between the map and chart:</span> Hovering over a prefecture on the map updates the chart in real-time, and vice versa.
+3. <span class="font-bold dark:text-white">Designing responsive and intuitive UI/UX:</span> The tracker needed to work seamlessly across different devices, including desktops and mobile.
+
+Despite these hurdles, overcoming them was incredibly rewarding. The process taught me how to optimize performance, structure data-driven applications, and refine user experiences.
+
+---
+
+## <span class="font-bold dark:text-white">What I Learned</span>
+
+This project was an invaluable learning experience that enhanced my skills in:
+- <span class="font-bold dark:text-white">Geospatial data visualization:</span> Deepened my understanding of Mapbox GL JS and its capabilities.
+- <span class="font-bold dark:text-white">Interactive data storytelling:</span> Leveraged d3.js to transform raw data into compelling narratives.
+- <span class="font-bold dark:text-white">API integration and data management:</span> Efficiently utilized a third-party API to create real-time updates.
+- <span class="font-bold dark:text-white">User experience design:</span> Focused on creating intuitive, visually engaging features.
+
+---
+
+## <span class="font-bold dark:text-white">Conclusion and Next Steps</span>
+
+Developing the <span class="font-bold dark:text-white">Japan COVID-19 Tracker</span> was a fulfilling experience that allowed me to blend technical skills with creativity. I’m proud to share that I passed the Mapbox GL JS exam and gained the confidence to take on more ambitious projects using these tools.
+
+I’m excited to explore further possibilities with <span class="font-bold dark:text-white">Mapbox</span> and <span class="font-bold dark:text-white">d3.js</span>.
+
+
+---
+
+Thanks for reading! 🌏

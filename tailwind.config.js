@@ -1,7 +1,7 @@
 module.exports = {
     plugins: [require('@tailwindcss/typography')],
     darkMode: "class",
-    content: ['./components/**/*.tsx', './pages/**/*.tsx'],
+    content: ['./components/**/*.tsx', './pages/**/*.tsx', './_posts/**/*.mdx'],
     variants: {
       extend: {
         typography: ['dark'],
@@ -17,6 +17,18 @@ module.exports = {
                 color: theme('colors.gray.100'),
               },
               h2: {
+                color: theme('colors.gray.100'),
+              },
+              h3: {
+                color: theme('colors.gray.100'),
+              },
+              h4: {
+                color: theme('colors.gray.100'),
+              },
+              h5: {
+                color: theme('colors.gray.100'),
+              },
+              h6: {
                 color: theme('colors.gray.100'),
               },
             },
