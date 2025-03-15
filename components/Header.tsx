@@ -32,7 +32,7 @@ const Header = () => {
           onClick={toggleThemeHandler}
           className="dark:text-gray-400 dark:hover:bg-gray-700 rounded-lg p-2.5 text-sm text-gray-500 hover:bg-gray-100 focus:outline-none"
         >
-          {isDarkTheme ? (
+          {/* {isDarkTheme ? (
             <svg
               className="h-4 w-4"
               fill="currentColor"
@@ -56,7 +56,7 @@ const Header = () => {
                 clipRule="evenodd"
               />
             </svg>
-          )}
+          )} */}
         </button>
       </div>
     </header>
