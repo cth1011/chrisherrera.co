@@ -1,8 +1,5 @@
-/** @jsxImportSource @emotion/react */
 import { useContext } from "react";
-import tw from "twin.macro";
 import Link from "next/link";
-
 import MyThemeContext from "store/theme";
 
 const Header = () => {
@@ -13,27 +10,33 @@ const Header = () => {
   function toggleThemeHandler(): void {
     themeCtx.toggleThemeHandler();
   }
+
   return (
-    <NavBar>
-      <Link legacyBehavior href="/" passHref>
-        <NavLink className="nav sm:text-xl font-bold">CHRIS HERRERA</NavLink>
+    <header className="mx-auto flex flex-row items-center whitespace-nowrap pb-10 pt-5 tracking-wider lg:max-w-2xl">
+      <Link href="/" className="nav font-bold sm:text-xl">
+        CHRIS HERRERA
       </Link>
-      <FlexGrow />
-      <Links>
-        <Link legacyBehavior href="/about" passHref>
-          <NavLink className="nav">About</NavLink>
+
+      <div className="flex-1" />
+
+      <div className="hidden flex-row items-center gap-4 sm:flex">
+        <Link href="/about" className="nav dark:hover:border-b-white">
+          About
         </Link>
-        <Link legacyBehavior href="/projects" passHref>
-          <NavLink className="nav">Projects</NavLink>
+        <Link href="/projects" className="nav dark:hover:border-b-white">
+          Projects
         </Link>
-        {/* <Link href="/blog" passHref>
-          <NavLink className="nav">Blog</NavLink>
-        </Link> */}
-        <DarkModeButton type="button" onClick={toggleThemeHandler}>
+
+        <button
+          type="button"
+          onClick={toggleThemeHandler}
+          className="dark:text-gray-400 dark:hover:bg-gray-700 rounded-lg p-2.5 text-sm text-gray-500 hover:bg-gray-100 focus:outline-none"
+        >
           {isDarkTheme ? (
             <svg
-              className="w-4 h-4"
+              className="h-4 w-4"
               fill="currentColor"
+              aria-label="light mode"
               viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -41,8 +44,9 @@ const Header = () => {
             </svg>
           ) : (
             <svg
-              className="w-4 h-4"
+              className="h-4 w-4"
               fill="currentColor"
+              aria-label="dark mode"
               viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -53,30 +57,10 @@ const Header = () => {
               />
             </svg>
           )}
-        </DarkModeButton>
-      </Links>
-    </NavBar>
+        </button>
+      </div>
+    </header>
   );
 };
 
 export default Header;
-
-const NavBar = tw.header`
-  flex flex-row items-center 
-  pt-5 pb-10 
-  tracking-wider whitespace-nowrap
-  lg:max-w-2xl mx-auto
-`;
-
-const FlexGrow = tw.div`flex-1 `;
-const Links = tw.div`flex-row items-center gap-4 hidden sm:flex`;
-
-const NavLink = tw.a`
- dark:hover:border-b-white`;
-
-const DarkModeButton = tw.button`
- text-gray-500 dark:text-gray-400
-hover:bg-gray-100 dark:hover:bg-gray-700 
-focus:outline-none
-rounded-lg text-sm p-2.5
- `;

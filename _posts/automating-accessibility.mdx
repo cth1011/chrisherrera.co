@@ -1,0 +1,167 @@
+---
+title: "Learning Web Accessibility: A Frontend Developer's Journey"
+date: "2022-11-25"
+tags: Guides
+description: "A frontend developer's journey into web accessibility, covering HTML, ARIA, focus management, and best practices for creating inclusive web experiences."
+---
+
+Recently, I dove deep into web.dev's accessibility documentation, and I wanted to share what I learned about making websites more accessible. As frontend developers, it's crucial we understand these concepts to create inclusive web experiences. Here's how I applied the **80/20 principle** to focus on the most impactful accessibility practices.
+
+## The Foundation: Semantic HTML
+
+One of the most effective ways to improve accessibility is by using **semantic HTML**. This provides structure and meaning to your content, making it easier for assistive technologies to interpret.
+
+### Why Semantic HTML Matters
+- Screen readers rely on semantic elements to navigate and describe content.
+- Proper use of headings (`<h1>` to `<h6>`) creates a logical document outline.
+- Native HTML elements come with built-in accessibility features.
+
+### Example: Proper Document Structure
+
+```html
+<header>
+    <nav aria-label="Main navigation">
+        {/* Navigation content */}
+    </nav>
+</header>
+
+<main>
+    <h1>Main Content Heading</h1>
+    <section aria-labelledby="intro-heading">
+        <h2 id="intro-heading">Introduction</h2>
+        {/* Section content */}
+    </section>
+</main>
+
+<footer>
+    {/* Footer content */}
+</footer>
+```
+
+## ARIA: Use It Sparingly and Correctly
+
+While ARIA can enhance accessibility, it should complement—not replace—semantic HTML. Overusing ARIA can actually make your site less accessible.
+
+
+### The Five Rules of ARIA
+
+1. Don't Use ARIA Unnecessarily: Native HTML is almost always better.
+2. Prefer Native HTML Elements: Use `<button>` instead of `<div role="button">`.
+3. Ensure Keyboard Accessibility: Every interactive ARIA control must be keyboard-operable.
+4. Use `aria-label` and `aria-describedby` Wisely: Provide clear descriptions for complex elements.
+5. Test with Screen Readers: ARIA changes should be verified with actual assistive technologies.
+
+### Example: ARIA Done Right
+
+```html
+{/* Don't do this */}
+<div role="button" tabindex="0" onclick="submitForm()">Submit</div>
+
+{/* Do this instead */}
+<button onclick="submitForm()">Submit</button>
+```
+
+## Keyboard Accessibility: A Must-Have
+
+Keyboard accessibility is one of the most critical aspects of web accessibility. Many users rely on keyboards or keyboard-like devices to navigate websites.
+
+### Key Practices
+1. Ensure all interactive elements (links, buttons, forms) are focusable and usable with a keyboard.
+2. Use `tabindex="0"` to make elements focusable and `tabindex="-1"` to remove them from the tab order.
+3. Avoid `tabindex` values greater than 0, as they can disrupt the natural tab order.
+
+### Example: Skip Link for Keyboard Users
+
+```jsx
+const SkipLink = () => {
+  return (
+    <a 
+      href="#main-content" 
+      className="skip-link"
+      style={{
+        position: 'absolute',
+        top: '-40px',
+        left: 0,
+        background: '#000',
+        color: '#fff',
+        padding: '8px',
+        zIndex: 100,
+        // Only show when focused
+        ':focus': {
+          top: 0
+        }
+      }}
+    >
+      Skip to main content
+    </a>
+  )
+}
+```
+
+## Focus Management: Don't Break the Flow
+
+  Proper focus management ensures users always know where they are on the page. This is especially important for dynamic content like modals or dropdowns.
+
+### Key Practices
+- Ensure focus indicators are visible (don't remove outline in CSS without providing an alternative).
+- Move focus to new content (e.g., modals) when it appears.
+- Trap focus within modals to prevent users from tabbing outside.
+
+## Images: Alt Text and Descriptions
+
+Images are a key part of web content, but they need to be accessible to everyone.
+
+### Key Practices
+- Use alt text for meaningful images.
+- Leave alt empty (`alt=""`) for decorative images.
+- Use `aria-describedby` for complex images that need additional context.
+
+### Example: Informative Image
+
+```html
+<img 
+  src="chart.jpg" 
+  alt="Quarter 4 sales showing 25% increase over Q3"
+  aria-describedby="chart-description"
+/>
+<p id="chart-description" className="visually-hidden">
+  Detailed breakdown of Q4 sales performance...
+</p>
+```
+
+## Language Management: Declare and Specify
+
+Proper language declarations help screen readers pronounce content correctly.
+
+### Example: Language Declaration
+
+```html
+<html lang="en">
+  <head>{/* ... */}</head>
+  <body>
+    <p>Hello! In French, we say: <span lang="fr">Bonjour!</span></p>
+  </body>
+</html>
+```
+
+## Learnings and Best Practices
+
+1. Start with Semantic HTML: It solves many accessibility issues before they begin.
+2. Test with Keyboard Navigation: Ensure all interactive elements are usable with a keyboard.
+3. Use ARIA Sparingly: Only when native HTML isn't sufficient.
+4. Ensure Visible Focus States: Always make focus indicators clear and meet contrast requirements.
+5. Test with Real Users: Involve people with disabilities in your testing process.
+
+## Tools I Found Helpful
+
+- Chrome DevTools Accessibility Inspector: For quick audits.
+- WAVE (Web Accessibility Evaluation Tool): For detailed reports.
+- axe DevTools: For automated testing.
+- Screen Readers (NVDA, VoiceOver): For manual testing.
+- Keyboard Navigation Testing: Ensure all functionality is keyboard-accessible.
+
+## Closing Thoughts
+
+Learning about web accessibility has fundamentally changed how I approach frontend development. It's not just about compliance—it's about creating a better web experience for all users, regardless of how they interact with our content.
+
+Hope you found this post useful! If you have any questions or feedback, feel free to reach out. Happy coding! 🚀
