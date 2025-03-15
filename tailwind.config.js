@@ -1,6 +1,6 @@
 module.exports = {
     plugins: [require('@tailwindcss/typography')],
-    darkMode: "class",
+    darkMode: ["class", "[data-mode='dark'"],
     content: ['./components/**/*.tsx', './pages/**/*.tsx', './_posts/**/*.mdx'],
     variants: {
       extend: {
@@ -35,6 +35,7 @@ module.exports = {
           },
         }),
         backgroundImage: {
+          'haven': "url('/assets/haven-chat.jpeg')",
           'covid': "url('/assets/mapbox-exam/covid-japan.jpg')",
           'blog': "url('/assets/blog.png')",
           'hermosa': "url('/assets/hermosa.png')",

@@ -1,13 +1,11 @@
 import React from "react";
-import tw, { TwStyle } from "twin.macro";
-
 import Link from "next/link";
 
 import Badge from "components/Badge";
 import Button from "components/Button";
 
 type CardProps = {
-  img?: any;
+  img?: string;
   href?: string;
   title: string;
   description: string;
@@ -20,80 +18,60 @@ type CardProps = {
 const Card = ({
   title,
   description,
-  img = tw`bg-covid`,
+  img = "bg-covid",
   from,
   to,
   label = "Read More",
   tags,
-  href = "/",
+  href,
 }: CardProps) => (
-  <Container>
-    <ImgContainer css={[img]} />
-    <Body>
-      <Link legacyBehavior href={href}>
-        <Title>{title}</Title>
+  <div className="dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 mb-2 mr-2 max-w-md rounded-lg border border-gray-200 bg-white shadow-md transition-all duration-300 hover:bg-gray-100">
+    <div
+      className={`h-[200px] w-full rounded-t-lg ${img} bg-cover bg-center bg-no-repeat`}
+    />
+    <div className="p-5">
+      <Link legacyBehavior href={href || "#"}>
+        <h5 className="dark:text-white whitespace-nowrap text-2xl font-bold tracking-tight text-gray-900">
+          {title}
+        </h5>
       </Link>
       <small>
         {from} - {to}
       </small>
       {tags && (
-        <Tags>
+        <div className="pt-2">
           {tags.map((value, i) => (
             <Badge key={i}>{value}</Badge>
           ))}
-        </Tags>
+        </div>
       )}
-      <Description>{description}</Description>
-      <Link legacyBehavior href={href} passHref>
-        <a>
-          <Button>
-            {label}
-            <svg
-              aria-hidden="true"
-              className="ml-2 -mr-1 w-4 h-4"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                fillRule="evenodd"
-                d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                clipRule="evenodd"
-              ></path>
-            </svg>
-          </Button>
-        </a>
-      </Link>
-    </Body>
-  </Container>
+      <p className="dark:text-gray-400 my-3 min-h-[180px] font-normal text-gray-700">
+        {description}
+      </p>
+      {href && (
+        <Link legacyBehavior href={href} passHref>
+          <a>
+            <Button>
+              {label}
+              <svg
+                aria-hidden="true"
+                className="-mr-1 ml-2 h-4 w-4"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                  clipRule="evenodd"
+                ></path>
+              </svg>
+            </Button>
+          </a>
+        </Link>
+      )}
+    </div>
+  </div>
 );
 
 export default Card;
-
-const Container = tw.div`
-    max-w-md bg-white rounded-lg 
-    mr-2 mb-2
-    border border-gray-200 shadow-md 
-    transition-all
-    duration-300
-    hover:bg-gray-100
-    dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700
-`;
-const ImgContainer = tw.div`
-w-full h-[200px]
-rounded-t-lg
-bg-cover
-bg-center
-bg-no-repeat `;
-const Body = tw.div`p-5`;
-const Title = tw.h5`
-    text-2xl font-bold tracking-tight text-gray-900 whitespace-nowrap
-    dark:text-white
-`;
-
-const Tags = tw.div`pt-2`;
-
-const Description = tw.p`
-    my-3 font-normal min-h-[180px]
-    text-gray-700 dark:text-gray-400
-`;

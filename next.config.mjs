@@ -1,9 +1,13 @@
-const withMDX = require('@next/mdx')({
+import withMDX from '@next/mdx'
+
+const config = withMDX({
   extension: /\.mdx?$/,
   options: {
     providerImportSource: '@mdx-js/react',
   },
 })
-module.exports = withMDX({
+
+export default {
+  ...config,
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
-})
+}

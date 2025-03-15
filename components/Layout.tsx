@@ -1,7 +1,5 @@
 import React, { ReactNode } from "react";
 import Head from "next/head";
-import tw from "twin.macro";
-
 import Footer from "components/Footer";
 import Header from "components/Header";
 
@@ -11,33 +9,18 @@ type Props = {
 
 const Layout = ({ children }: Props) => {
   return (
-    <Page>
+    <div className="dark:bg-gray-900 dark:text-white flex min-h-screen flex-col transition-all duration-1000">
       <Head>
         <title>Chris Herrera</title>
         <link rel="shortcut icon" href="CH.png" />
       </Head>
-      <Section>
+      <div className="min-w-full flex-grow px-8 lg:container sm:px-14 sm:py-12">
         <Header />
-        <Main>{children}</Main>
-      </Section>
+        <main className="mx-auto lg:max-w-2xl">{children}</main>
+      </div>
       <Footer />
-    </Page>
+    </div>
   );
 };
 
 export default Layout;
-
-const Page = tw.div`
-flex flex-col min-h-screen
-transition-all duration-1000
-dark:bg-gray-900  dark:text-white
-`;
-const Section = tw.div`
-  sm:py-12 px-8 sm:px-14
-  lg:container min-w-full
-  flex-grow
-`;
-
-const Main = tw.main`
-lg:max-w-2xl mx-auto
-`;

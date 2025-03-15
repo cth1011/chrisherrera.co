@@ -1,11 +1,8 @@
 import { serialize } from "next-mdx-remote/serialize";
 import { GetStaticProps, GetStaticPaths } from "next";
 import Image from "next/image";
-import { useEffect } from "react";
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 
-import { useMdxComponentsContext } from "context/mdxContext";
-import Thumbnail from "components/Thumbnail";
 import { IPost } from "types/post";
 import { getPost, getAllPosts } from "utils/mdxUtils";
 import { ParsedUrlQuery } from "querystring";
@@ -25,24 +22,9 @@ const components = {
 };
 
 const PostPage: React.FC<Props> = ({ source, frontMatter }: Props) => {
-  // // get setters
-  // const { setPrerequisites, setStacks } = useMdxComponentsContext();
-
-  // useEffect(() => {
-  //   // set prerequisites
-  //   setPrerequisites(frontMatter.prerequisites);
-  //   // set stacks
-  //   setStacks(frontMatter.stacks);
-  // }, [
-  //   setPrerequisites,
-  //   setStacks,
-  //   frontMatter.prerequisites,
-  //   frontMatter.stacks,
-  // ]);
-
   return (
     <div>
-      <article className="prose max-w-full prose-yellow dark:prose-dark">
+      <article className="dark:prose-dark prose prose-yellow max-w-full">
         <h1>{frontMatter.title}</h1>
         <MDXRemote components={components} {...source} />
       </article>
