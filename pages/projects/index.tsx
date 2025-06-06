@@ -1,67 +1,110 @@
-import React from "react";
-import Card from "components/Card";
+import React, { useMemo, useState } from "react";
+import Head from "next/head";
 
-const projects = [
-  {
-    title: "Haven: AI Chat",
-    description: `Developed "Haven," a web app using Next.js and Vercel, integrating a custom AI model hosted on GCP. 
-    The app is designed as a modern chat companion.`,
-    img: "bg-haven",
-    from: "May 2023",
-    to: "Present",
-    label: "Visit Website",
-    tags: ["Next.js", "tRPC", "GCP", "React"],
-  },
-  {
-    title: "Covid-19 Japan Tracker",
-    description: `
-    For the mapbox certification, I created a Japan COVID-19 Dashboard that allows users to view the active, testing, death, and recovery cases.
-    `,
-    img: "bg-covid",
-    href: "https://github.com/cth1011/covid-japan",
-    from: "Sept 2020",
-    to: "Oct 2020",
-    label: "Visit Github Repo",
-    tags: ["React", "Mapbox JS", "d3.js"],
-  },
-  {
-    title: "Hermosa Beauty Store",
-    description: `
-    I helped a few friends setup their 
-    shopify store in the Philippines. They
-    sell over 200 products with over 20 brands.
-    `,
-    img: "bg-hermosa",
-    href: "https://hermosabeautystore.com/",
-    from: "June 2020",
-    to: "July 2020",
-    label: "Visit Website",
-    tags: ["Shopify", "Liquid"],
-  },
-  {
-    title: "Inaccessible HIV Centers",
-    description: `Developed a geospatial web application that can identify
-    inaccesible HIV centers based on your area in the Philippines.`,
-    img: "bg-hiv",
-    from: "Sept 2018",
-    to: "Dec 2018",
-    tags: ["Mapbox JS", "Javascript"],
-    href: "https://stories.thinkingmachin.es/doh-hiv-centers-access/",
-  },
-];
+import { useAutoAnimate } from "@formkit/auto-animate/react";
+import { PROJECTS } from "lib/constants";
+import { Search, X } from "lucide-react";
+import { Badge } from "components/ui/badge";
+import Card from "components/Card";
+import { Input } from "components/ui/input";
 
 const Projects: React.FC = () => {
+  const [searchTerm, setSearchTerm] = useState("");
+  const [projectListRef] = useAutoAnimate<HTMLUListElement>();
+  const [categoryFilterRef] = useAutoAnimate<HTMLDivElement>();
+  const [selectedTags, setSelectedTags] = useState<string[]>([]);
+
+  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchTerm(event.target.value);
+  };
+  const clearCategoryFilter = (category: string) => {
+    setSelectedTags((prev) => prev.filter((cat) => cat !== category));
+  };
+
+  const displayedProjects = useMemo(() => {
+    let filtered = [...PROJECTS];
+
+    if (searchTerm.trim() !== "") {
+      const lowerSearchTerm = searchTerm.toLowerCase();
+      filtered = filtered.filter(
+        (project) =>
+          project.title.toLowerCase().includes(lowerSearchTerm) ||
+          project.description.toLowerCase().includes(lowerSearchTerm) ||
+          project.tags?.some((tag) =>
+            tag.toLowerCase().includes(lowerSearchTerm),
+          ),
+      );
+    }
+
+    if (selectedTags.length > 0) {
+      filtered = filtered.filter((project) =>
+        project.tags?.some((tag) => selectedTags.includes(tag)),
+      );
+    }
+
+    return filtered;
+  }, [searchTerm, selectedTags]);
   return (
-    <div>
-      <h2 className="text-center md:text-left">Projects</h2>
-      <div className="flex flex-row flex-wrap items-center justify-center py-4">
-        {projects.map((project, i) => (
-          <div key={i} className="mb-2 md:w-1/2">
-            <Card {...project} />
-          </div>
-        ))}
+    <>
+      <Head>
+        <title>Projects | Chris Herrera</title>
+        <meta
+          name="description"
+          content="Explore the projects of Chris Herrera, showcasing innovative software solutions and creative digital experiences."
+        />
+        <link rel="shortcut icon" href="/CH.png" />
+        <meta property="og:title" content="Projects | Chris Herrera" />
+        <meta
+          property="og:description"
+          content="Explore the projects of Chris Herrera, showcasing innovative software solutions and creative digital experiences."
+        />
+      </Head>
+      <div className="mb-4 flex w-full flex-col items-center justify-between sm:flex-row">
+        <h1 className="pb-2 text-center md:text-left">Projects</h1>
+        <div className="relative w-full sm:w-1/3">
+          <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" />
+          <Input
+            type="text"
+            placeholder="Search projects..."
+            className="rounded-md border border-gray-300 py-2 pl-10 pr-4"
+            value={searchTerm}
+            onChange={handleSearchChange}
+            aria-label="Search projects"
+          />
+        </div>
       </div>
-    </div>
+      <div ref={categoryFilterRef} className="flex flex-wrap gap-2">
+        {selectedTags &&
+          selectedTags.map((category) => (
+            <span className="text-sm text-white">
+              <Badge
+                className="group cursor-pointer"
+                onClick={() => clearCategoryFilter(category)}
+              >
+                {category}
+                <X className="ml-2 h-4 w-4 transition-all duration-300 group-hover:rotate-90" />
+              </Badge>
+            </span>
+          ))}
+      </div>
+
+      <ul
+        className="flex flex-row flex-wrap items-center justify-center gap-4 py-2"
+        ref={projectListRef}
+      >
+        {displayedProjects.map((project, i) => (
+          <Card
+            key={project.title + i}
+            {...project}
+            onBadgeClick={(tag) =>
+              setSelectedTags((prev) =>
+                prev.includes(tag) ? prev : [...prev, tag],
+              )
+            }
+          />
+        ))}
+      </ul>
+    </>
   );
 };
 

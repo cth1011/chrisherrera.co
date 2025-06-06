@@ -1,11 +1,13 @@
 import React from "react";
 import Link from "next/link";
 
-import Badge from "components/Badge";
+import { Badge } from "components/ui/badge";
 import Button from "components/Button";
 
+import { ArrowRight } from "lucide-react";
+
 type CardProps = {
-  img?: string;
+  img: string;
   href?: string;
   title: string;
   description: string;
@@ -13,23 +15,26 @@ type CardProps = {
   from: string;
   to: string;
   tags?: string[];
+  onBadgeClick: (tag: string) => void;
 };
 
 const Card = ({
   title,
   description,
-  img = "bg-covid",
+  img,
   from,
   to,
   label = "Read More",
   tags,
   href,
+  onBadgeClick,
 }: CardProps) => (
-  <div className="dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 mb-2 mr-2 max-w-md rounded-lg border border-gray-200 bg-white shadow-md transition-all duration-300 hover:bg-gray-100">
+  <li className="dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 relative flex flex-col rounded-lg border border-gray-200 bg-white shadow-md transition-all duration-300 hover:bg-gray-100 sm:flex-row">
     <div
-      className={`h-[200px] w-full rounded-t-lg ${img} bg-cover bg-center bg-no-repeat`}
+      style={{ backgroundImage: `url(${img})` }}
+      className={`min-h-[200px] w-full rounded-t-lg bg-cover bg-center bg-no-repeat sm:w-1/3 sm:rounded-l-lg sm:rounded-r-none`}
     />
-    <div className="p-5">
+    <div className="p-5 sm:w-2/3">
       <Link legacyBehavior href={href || "#"}>
         <h5 className="dark:text-white whitespace-nowrap text-2xl font-bold tracking-tight text-gray-900">
           {title}
@@ -39,9 +44,15 @@ const Card = ({
         {from} - {to}
       </small>
       {tags && (
-        <div className="pt-2">
+        <div className="flex flex-wrap gap-2 pt-2">
           {tags.map((value, i) => (
-            <Badge key={i}>{value}</Badge>
+            <Badge
+              className="cursor-pointer"
+              onClick={() => onBadgeClick(value)}
+              key={i}
+            >
+              {value}
+            </Badge>
           ))}
         </div>
       )}
@@ -53,25 +64,13 @@ const Card = ({
           <a>
             <Button>
               {label}
-              <svg
-                aria-hidden="true"
-                className="-mr-1 ml-2 h-4 w-4"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                  clipRule="evenodd"
-                ></path>
-              </svg>
+              <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </a>
         </Link>
       )}
     </div>
-  </div>
+  </li>
 );
 
 export default Card;
