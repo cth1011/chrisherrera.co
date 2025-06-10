@@ -1,5 +1,6 @@
+"use client";
+
 import React, { useMemo, useState } from "react";
-import Head from "next/head";
 
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 import { PROJECTS } from "lib/constants";
@@ -7,6 +8,7 @@ import { Search, X } from "lucide-react";
 import { Badge } from "components/ui/badge";
 import Card from "components/Card";
 import { Input } from "components/ui/input";
+import type { Metadata } from "next";
 
 const Projects: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -46,19 +48,6 @@ const Projects: React.FC = () => {
   }, [searchTerm, selectedTags]);
   return (
     <>
-      <Head>
-        <title>Projects | Chris Herrera</title>
-        <meta
-          name="description"
-          content="Explore the projects of Chris Herrera, showcasing innovative software solutions and creative digital experiences."
-        />
-        <link rel="shortcut icon" href="/CH.png" />
-        <meta property="og:title" content="Projects | Chris Herrera" />
-        <meta
-          property="og:description"
-          content="Explore the projects of Chris Herrera, showcasing innovative software solutions and creative digital experiences."
-        />
-      </Head>
       <div className="mb-4 flex w-full flex-col items-center justify-between sm:flex-row">
         <h1 className="pb-2 text-center md:text-left">Projects</h1>
         <div className="relative w-full sm:w-1/3">
@@ -76,7 +65,7 @@ const Projects: React.FC = () => {
       <div ref={categoryFilterRef} className="flex flex-wrap gap-2">
         {selectedTags &&
           selectedTags.map((category) => (
-            <span className="text-sm text-white">
+            <span key={category} className="text-sm text-white">
               <Badge
                 className="group cursor-pointer"
                 onClick={() => clearCategoryFilter(category)}
@@ -96,6 +85,7 @@ const Projects: React.FC = () => {
           <Card
             key={project.title + i}
             {...project}
+            priority={i < 2}
             onBadgeClick={(tag) =>
               setSelectedTags((prev) =>
                 prev.includes(tag) ? prev : [...prev, tag],

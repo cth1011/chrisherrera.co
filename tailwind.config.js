@@ -1,7 +1,7 @@
 module.exports = {
     plugins: [require('@tailwindcss/typography'), require("tailwindcss-animate")],
     darkMode: ["class", "[data-mode='dark'", 'class'],
-    content: ['./components/**/*.tsx', './pages/**/*.tsx', './_posts/**/*.mdx'],
+    content: ['./components/**/*.tsx', './app/**/*.tsx', './_posts/**/*.mdx'],
     variants: {
       extend: {
         typography: ['dark'],

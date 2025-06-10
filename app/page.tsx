@@ -1,3 +1,4 @@
+// app/page.tsx
 import orderBy from "lodash/orderBy";
 import moment from "moment";
 import Link from "next/link";
@@ -6,15 +7,19 @@ import { getAllPosts } from "utils/mdxUtils";
 import Bio from "components/Bio";
 import Divider from "components/Divider";
 
-import type { NextPage, GetStaticProps } from "next";
 import { IPost } from "types/post";
 
-type Props = {
-  posts: [IPost];
-};
-
-const Home: NextPage<Props> = ({ posts }: Props) => {
+export default async function Home() {
+  const posts = getAllPosts([
+    "title",
+    "slug",
+    "date",
+    "description",
+    "thumbnail",
+    "tags",
+  ]);
   const sortedPosts = orderBy(posts, "date", "desc");
+
   return (
     <div>
       <Bio />
@@ -36,12 +41,4 @@ const Home: NextPage<Props> = ({ posts }: Props) => {
       </div>
     </div>
   );
-};
-
-export default Home;
-
-export const getStaticProps: GetStaticProps = async () => {
-  const posts = getAllPosts(["title", "slug", "date", "description"]);
-
-  return { props: { posts } };
-};
+}

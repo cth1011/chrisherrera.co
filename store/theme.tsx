@@ -1,3 +1,4 @@
+"use client";
 import { createContext, ReactElement, useEffect, useState } from "react";
 
 const MyThemeContext = createContext({
@@ -10,7 +11,7 @@ interface ThemePropsInterface {
 }
 
 export function MyThemeContextProvider(
-  props: ThemePropsInterface
+  props: ThemePropsInterface,
 ): ReactElement {
   const [isDarkTheme, setIsDarkTheme] = useState(false);
   useEffect(() => initialThemeHandler());
@@ -26,7 +27,7 @@ export function MyThemeContextProvider(
       setIsDarkTheme(false);
     } else {
       const isDarkTheme: boolean = JSON.parse(
-        localStorage.getItem("isDarkTheme")!
+        localStorage.getItem("isDarkTheme")!,
       );
       isDarkTheme && document!.querySelector("body")!.classList.add("dark");
       setIsDarkTheme(() => {
@@ -37,7 +38,7 @@ export function MyThemeContextProvider(
 
   function toggleThemeHandler(): void {
     const isDarkTheme: boolean = JSON.parse(
-      localStorage.getItem("isDarkTheme")!
+      localStorage.getItem("isDarkTheme")!,
     );
     setIsDarkTheme(!isDarkTheme);
     toggleDarkClassToBody();
