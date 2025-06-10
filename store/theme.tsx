@@ -7,7 +7,7 @@ const MyThemeContext = createContext({
 });
 
 interface ThemePropsInterface {
-  children?: JSX.Element | Array<JSX.Element>;
+  children?: React.ReactNode;
 }
 
 export function MyThemeContextProvider(
