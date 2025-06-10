@@ -2,10 +2,11 @@
 
 import Image from "next/image";
 import { MDXRemote } from "next-mdx-remote-client/rsc";
-import type { Metadata } from "next";
+// 1. Import Metadata and ResolvingMetadata
+import type { Metadata, ResolvingMetadata } from "next";
 import { getPost, getAllPosts } from "utils/mdxUtils";
 
-// 1. Define a complete and accurate Props type
+// 2. Define the Props type as before. This is correct for the page itself.
 type Props = {
   params: { slug: string };
   searchParams?: { [key: string]: string | string[] | undefined };
@@ -18,7 +19,11 @@ export async function generateStaticParams() {
   }));
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata(
+  { params }: Props,
+  parent: ResolvingMetadata,
+): Promise<Metadata> {
+  // Get the post data
   const { data } = getPost(params.slug);
   return {
     title: `${data.title} | Chris Herrera`,
